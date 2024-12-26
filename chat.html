@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="chat-container">
+        <h2>Chatbot</h2>
+        <div id="chat-box">
+            {% for message in chat_history %}
+            <div class="message-container">
+                <p class="user-message"><strong>You:</strong> {{ message.user }}</p>
+                <p class="bot-message"><strong>Bot:</strong> {{ message.bot }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <form method="POST" id="chat-form">
+            <input type="text" name="message" placeholder="Type your message here..." required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>
